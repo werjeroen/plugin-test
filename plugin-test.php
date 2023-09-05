@@ -11,11 +11,11 @@ function custom_message_function() {
 }
 add_action('admin_notices', 'custom_message_function');
 
-if ( is_admin() )  {
-    include_once plugin_dir_path( dirname( __FILE__, 2 ) ); . '/core/config/updater/PluginUpdater.php';
-
-    $updater = new PDUpdater(__FILE__);
-    $updater->set_username('We-R-Media');
-    $updater->set_repository('werpluginupdatecheck');
-    $updater->initialize();
+if( ! class_exists( 'Wer_Plugin_Updater' ) ){
+	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 }
+
+$updater = new Wer_Plugin_Updater( __FILE__ );
+$updater->set_username( 'werjeroen' );
+$updater->set_repository( 'plugin-test' );
+$updater->initialize();
