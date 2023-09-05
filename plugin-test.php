@@ -2,12 +2,12 @@
 /*
 Plugin Name: Custom Message Plugin
 Description: A simple WordPress plugin that displays a custom message.
-Version: 1.0.1
+Version: 1.0.2
 Author: We'r Media
 */
 
 function custom_message_function() {
-    echo '<div class="notice notice-success is-dismissible"><p>Hello, this is a custom message from your WordPress plugin!</p></div>';
+    echo '<div class="notice notice-success"><p>Hello, this is a custom message from We\'r Media!</p></div>';
 }
 add_action('admin_notices', 'custom_message_function');
 
